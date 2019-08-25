@@ -1,22 +1,22 @@
-# React-Phone-Input-2
-Highly customizable phone input component with auto formatting.
+# React-Phone-Input-3
+Highly customizable phone input component with auto formatting. This is a version of the existing react-phone-input-3 with fixes for area code exclusion. 
 
-[![npm version](https://img.shields.io/npm/v/react-phone-input-2.svg?style=flat)](https://www.npmjs.com/package/react-phone-input-2)
-[![npm downloads](https://img.shields.io/npm/dm/react-phone-input-2.svg?style=flat)](https://www.npmjs.com/package/react-phone-input-2)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/bl00mber/react-phone-input-2#contributing)
-[![travis build](https://travis-ci.org/bl00mber/react-phone-input-2.svg?branch=master)](https://travis-ci.org/bl00mber/react-phone-input-2)
+[![npm version](https://img.shields.io/npm/v/react-phone-input-3.svg?style=flat)](https://www.npmjs.com/package/react-phone-input-3)
+[![npm downloads](https://img.shields.io/npm/dm/react-phone-input-3.svg?style=flat)](https://www.npmjs.com/package/react-phone-input-3)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/bl00mber/react-phone-input-3#contributing)
+[![travis build](https://travis-ci.org/bl00mber/react-phone-input-3.svg?branch=master)](https://travis-ci.org/bl00mber/react-phone-input-3)
 
 ![alt tag](https://media.giphy.com/media/xiORAWnqoTJDsH0UOI/giphy.gif)
 
 ## Installation
 ```shell-script
-npm install react-phone-input-2 --save
+npm install react-phone-input-3 --save
 ```
 
 ## Usage
 ```jsx
-import ReactPhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/dist/style.css'
+import ReactPhoneInput from 'react-phone-input-3'
+import 'react-phone-input-3/dist/style.css'
 
 <ReactPhoneInput defaultCountry={'us'} value={this.state.phone} onChange={handleOnChange}/>
 ```
@@ -324,6 +324,6 @@ function handleOnChange(value, data) {
 Code style changes not allowed
 
 ## License
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bl00mber/react-phone-input-2/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bl00mber/react-phone-input-3/blob/master/LICENSE)
 
 Based on [react-phone-input](https://github.com/razagill/react-phone-input)
