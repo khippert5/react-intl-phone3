@@ -1,6 +1,6 @@
 {
   "name": "react-intl-phone3",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A react component to format phone numbers",
   "main": "dist/lib.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khippert5/react-phone-input-3.git"
+    "url": "git+https://github.com/khippert5/react-intl-phone3.git"
   },
   "keywords": [
     "react",
@@ -33,9 +33,9 @@
   "author": "Kevin Hippert <kevinhippert@hiphelpstech.com> (http://github.com/khippert5)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/khippert5/react-phone-input-3/issues"
+    "url": "https://github.com/khippert5/react-intl-phone3/issues"
   },
-  "homepage": "https://github.com/khippert5/react-phone-input-3",
+  "homepage": "https://github.com/khippert5/react-intl-phone3",
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
