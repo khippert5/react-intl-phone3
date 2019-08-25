@@ -8,6 +8,6 @@ If this connection is severed, please contact me to revert readme back to usage.
 Code style changes not allowed
 
 ## License
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bl00mber/react-phone-input-2/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/khippert5/react-phone-input-3/blob/master/LICENSE)
 
-Based on [react-phone-input](https://github.com/bl00mber/react-phone-input-2)
+Based on [react-phone-input-2](https://github.com/bl00mber/react-phone-input-2)
