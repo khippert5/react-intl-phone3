@@ -1,5 +1,5 @@
 {
-  "name": "react-phone-input-3",
+  "name": "react-intl-phone3",
   "version": "0.1.0",
   "description": "A react component to format phone numbers",
   "main": "dist/lib.js",
