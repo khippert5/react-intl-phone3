@@ -1,5 +1,5 @@
 # React-Phone-Input-3
-Highly customizable phone input component with auto formatting. This is a version of the existing react-phone-input-3 with fixes for area code exclusion. 
+Highly customizable phone input component with auto formatting. This is a version of the existing react-phone-input-2 with fixes for area code exclusion. 
 
 [![npm version](https://img.shields.io/npm/v/react-phone-input-3.svg?style=flat)](https://www.npmjs.com/package/react-phone-input-3)
 [![npm downloads](https://img.shields.io/npm/dm/react-phone-input-3.svg?style=flat)](https://www.npmjs.com/package/react-phone-input-3)
