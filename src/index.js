@@ -426,6 +426,10 @@ class ReactPhoneInput extends React.Component {
   // Put the cursor to the end of the input (usually after a focus event)
   cursorToEnd = () => {
     const input = this.numberInputRef;
+    if (!input || typeof input === undefined) {
+      return;
+    }
+
     input.focus();
     const len = input.value.length;
     input.setSelectionRange(len, len);
@@ -564,6 +568,10 @@ class ReactPhoneInput extends React.Component {
   }
 
   handleInputFocus = (e) => {
+    // If reference is removed, stop processing focus
+    if (!this.numberInputRef) { 
+      return;
+    }
     // if the input is blank, insert dial code of the selected country
     if (this.numberInputRef) {
       if (this.numberInputRef.value === '+' && this.state.selectedCountry && !this.props.disableCountryCode) {
