@@ -10,7 +10,7 @@ import './styles.less';
 
 class ReactPhoneInput extends React.Component {
   static propTypes = {
-    autoCountry: PropTypes.bool,
+    autoSelectCountry: PropTypes.bool,
     excludeCountries: PropTypes.arrayOf(PropTypes.string),
     onlyCountries: PropTypes.arrayOf(PropTypes.string),
     preferredCountries: PropTypes.arrayOf(PropTypes.string),
@@ -60,7 +60,7 @@ class ReactPhoneInput extends React.Component {
   }
 
   static defaultProps = {
-    autoCountry: true,
+    autoSelectCountry: true,
     excludeCountries: [],
     onlyCountries: [],
     preferredCountries: [],
@@ -160,7 +160,7 @@ class ReactPhoneInput extends React.Component {
     const highlightCountryIndex = filteredCountries.findIndex(o => o == countryGuess);
 
     this.state = {
-      autoCountry: this.props.autoCountry,
+      autoSelectCountry: this.props.autoSelectCountry,
       formattedNumber,
       onlyCountries,
       preferredCountries,
@@ -267,7 +267,7 @@ class ReactPhoneInput extends React.Component {
 
   guessSelectedCountry = memoize((inputNumber, onlyCountries, defaultCountry) => {
     const secondBestGuess = onlyCountries.find(o => o.iso2 == defaultCountry) || {};
-    if (inputNumber.trim() === '' || this.props.autoCountry === false) return secondBestGuess;
+    if (inputNumber.trim() === '' || this.props.autoSelectCountry === false) return secondBestGuess;
 
     const bestGuess = onlyCountries.reduce((selectedCountry, country) => {
       if (inputNumber.startsWith(country.dialCode)) {
