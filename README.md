@@ -13,7 +13,7 @@ autoSelectCountry={false}
 
 ```
 
-Best use case for autoCountry: 
+Best use case for autoSelectCountry: 
 ```
 autoSelectCountry={false}
 autoFormat={false}
