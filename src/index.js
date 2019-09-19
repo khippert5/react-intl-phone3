@@ -172,21 +172,21 @@ class ReactPhoneInput extends React.Component {
     };
   }
 
-  componentDidMount() {
+  UNSAFE_componentDidMount() {
     if (document.addEventListener) {
       document.addEventListener('mousedown', this.handleClickOutside);
       document.addEventListener('keydown', this.handleKeydown);
     }
   }
 
-  componentWillUnmount() {
+  UNSAFE_componentWillUnmount() {
     if (document.removeEventListener) {
       document.removeEventListener('mousedown', this.handleClickOutside);
       document.removeEventListener('keydown', this.handleKeydown);
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.defaultCountry && nextProps.defaultCountry !== this.state.defaultCountry) {
       this.updateDefaultCountry(nextProps.defaultCountry);
     }
