@@ -4,17 +4,18 @@ Highly customizable phone input component with auto formatting. This is a versio
 For usage and abilities please see: https://github.com/bl00mber/react-phone-input-2
 If this connection is severed, please contact me to revert readme back to usage.
 
-## Attional feature(s)
-autoCountry - Allows country guessing to be turned on/off. Default is true. Turning off will default to the defaultCountry.
+## Additional feature(s):
+autoSelectCountry - Allows country guessing to be turned on/off. Default is true. Turning off will default to the defaultCountry.
+This is best used when autoFill is triggered. This will ensure that country is not guessed and forces the user to change the flag drop down to select dialcode
 
 ```
-autoCountry={false}
+autoSelectCountry={false}
 
 ```
 
 Best use case for autoCountry: 
 ```
-autoCountry={false}
+autoSelectCountry={false}
 autoFormat={false}
 autoPlaceholder={false}
 countryCodeEditable={false}
