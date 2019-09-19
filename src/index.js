@@ -10,6 +10,7 @@ import './styles.less';
 
 class ReactPhoneInput extends React.Component {
   static propTypes = {
+    autoCountry: PropTypes.bool,
     excludeCountries: PropTypes.arrayOf(PropTypes.string),
     onlyCountries: PropTypes.arrayOf(PropTypes.string),
     preferredCountries: PropTypes.arrayOf(PropTypes.string),
@@ -59,6 +60,7 @@ class ReactPhoneInput extends React.Component {
   }
 
   static defaultProps = {
+    autoCountry: true,
     excludeCountries: [],
     onlyCountries: [],
     preferredCountries: [],
@@ -112,6 +114,7 @@ class ReactPhoneInput extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(['super props', props]);
     let filteredCountries = countryData.allCountries;
 
     if (props.regions) filteredCountries = this.filterRegions(props.regions, filteredCountries);
@@ -129,17 +132,16 @@ class ReactPhoneInput extends React.Component {
     const inputNumber = props.value.replace(/[^0-9\.]+/g, '') || '';
 
     let countryGuess;
-    if (this.props.autoCountry) {
-      if (inputNumber.length > 1) {
-        // Country detect by value field
-        countryGuess = this.guessSelectedCountry(inputNumber.substring(0, 6), onlyCountries, props.defaultCountry) || 0;
-      } else if (props.defaultCountry) {
-        // Default country
-        countryGuess = onlyCountries.find(o => o.iso2 == props.defaultCountry) || 0;
-      } else {
-        // Empty params
-        countryGuess = 0;
-      }
+    console.log(['intl phone props', this.props]);
+    if (inputNumber.length > 1) {
+      // Country detect by value field
+      countryGuess = this.guessSelectedCountry(inputNumber.substring(0, 6), onlyCountries, props.defaultCountry) || 0;
+    } else if (props.defaultCountry) {
+      // Default country
+      countryGuess = onlyCountries.find(o => o.iso2 == props.defaultCountry) || 0;
+    } else {
+      // Empty params
+      countryGuess = 0;
     }
 
     const dialCode = (
@@ -158,6 +160,7 @@ class ReactPhoneInput extends React.Component {
     const highlightCountryIndex = filteredCountries.findIndex(o => o == countryGuess);
 
     this.state = {
+      autoCountry: this.props.autoCountry,
       formattedNumber,
       onlyCountries,
       preferredCountries,
@@ -170,6 +173,7 @@ class ReactPhoneInput extends React.Component {
       debouncedQueryStingSearcher: debounce(this.searchCountry, 250),
       searchValue: '',
     };
+    console.log(['intl phone state', this.state])
   }
 
   UNSAFE_componentDidMount() {
@@ -263,7 +267,7 @@ class ReactPhoneInput extends React.Component {
 
   guessSelectedCountry = memoize((inputNumber, onlyCountries, defaultCountry) => {
     const secondBestGuess = onlyCountries.find(o => o.iso2 == defaultCountry) || {};
-    if (inputNumber.trim() === '') return secondBestGuess;
+    if (inputNumber.trim() === '' || this.props.autoCountry === false) return secondBestGuess;
 
     const bestGuess = onlyCountries.reduce((selectedCountry, country) => {
       if (inputNumber.startsWith(country.dialCode)) {
