@@ -129,15 +129,17 @@ class ReactPhoneInput extends React.Component {
     const inputNumber = props.value.replace(/[^0-9\.]+/g, '') || '';
 
     let countryGuess;
-    if (inputNumber.length > 1) {
-      // Country detect by value field
-      countryGuess = this.guessSelectedCountry(inputNumber.substring(0, 6), onlyCountries, props.defaultCountry) || 0;
-    } else if (props.defaultCountry) {
-      // Default country
-      countryGuess = onlyCountries.find(o => o.iso2 == props.defaultCountry) || 0;
-    } else {
-      // Empty params
-      countryGuess = 0;
+    if (this.props.autoCountry) {
+      if (inputNumber.length > 1) {
+        // Country detect by value field
+        countryGuess = this.guessSelectedCountry(inputNumber.substring(0, 6), onlyCountries, props.defaultCountry) || 0;
+      } else if (props.defaultCountry) {
+        // Default country
+        countryGuess = onlyCountries.find(o => o.iso2 == props.defaultCountry) || 0;
+      } else {
+        // Empty params
+        countryGuess = 0;
+      }
     }
 
     const dialCode = (
