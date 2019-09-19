@@ -114,7 +114,6 @@ class ReactPhoneInput extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(['super props', props]);
     let filteredCountries = countryData.allCountries;
 
     if (props.regions) filteredCountries = this.filterRegions(props.regions, filteredCountries);
@@ -132,7 +131,6 @@ class ReactPhoneInput extends React.Component {
     const inputNumber = props.value.replace(/[^0-9\.]+/g, '') || '';
 
     let countryGuess;
-    console.log(['intl phone props', this.props]);
     if (inputNumber.length > 1) {
       // Country detect by value field
       countryGuess = this.guessSelectedCountry(inputNumber.substring(0, 6), onlyCountries, props.defaultCountry) || 0;
@@ -173,7 +171,6 @@ class ReactPhoneInput extends React.Component {
       debouncedQueryStingSearcher: debounce(this.searchCountry, 250),
       searchValue: '',
     };
-    console.log(['intl phone state', this.state])
   }
 
   UNSAFE_componentDidMount() {
