@@ -46,7 +46,7 @@
     }
   },
   "devDependencies": {
-    "@babel/core": "^7.3.3",
+    "@babel/core": "^7.6.2",
     "babel-loader": "^8.0.5",
     "babel-preset-react-app": "^7.0.1",
     "css-loader": "^2.1.0",
@@ -54,14 +54,14 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.5.0",
-    "react-hot-loader": "^4.6.5",
+    "react-hot-loader": "^4.12.14",
     "react-testing-library": "^6.0.4",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
-    "webpack": "^4.29.5",
-    "webpack-bundle-analyzer": "^3.0.4",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.1.14",
+    "webpack": "^4.41.0",
+    "webpack-bundle-analyzer": "^3.5.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2",
     "webpack-merge": "^4.2.1"
   },
   "peerDependencies": {
