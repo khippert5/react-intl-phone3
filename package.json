@@ -1,6 +1,6 @@
 {
   "name": "react-intl-phone3",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A react component to format phone numbers",
   "main": "dist/lib.js",
   "scripts": {

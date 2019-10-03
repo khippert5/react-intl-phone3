@@ -116,6 +116,10 @@ class ReactPhoneInput extends React.Component {
   constructor(props) {
     super(props);
     let filteredCountries = countryData.allCountries;
+    window.kmi = window.kmi || {};
+    window.kmi.intlPhone3 = { 
+      ...this.props,
+    }
 
     if (props.regions) filteredCountries = this.filterRegions(props.regions, filteredCountries);
     if (Object.keys(props.masks).length !== 0) filteredCountries = this.insertMasks(props.masks, filteredCountries);
@@ -173,6 +177,10 @@ class ReactPhoneInput extends React.Component {
       debouncedQueryStingSearcher: debounce(this.searchCountry, 250),
       searchValue: '',
     };
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
   }
 
   UNSAFE_componentDidMount() {
@@ -302,6 +310,10 @@ class ReactPhoneInput extends React.Component {
       selectedCountry: newSelectedCountry,
       formattedNumber: this.props.disableCountryCode ? '' : '+' + newSelectedCountry.dialCode
     });
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
   }
 
   updateFormattedNumber(value) {
@@ -327,6 +339,10 @@ class ReactPhoneInput extends React.Component {
     }
 
     this.setState({ selectedCountry: newSelectedCountry, formattedNumber });
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
   }
 
   // View methods
@@ -480,6 +496,10 @@ class ReactPhoneInput extends React.Component {
         }
       });
     }
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
   }
 
   handleInput = (e) => {
@@ -554,10 +574,19 @@ class ReactPhoneInput extends React.Component {
 
       if (this.props.onChange) this.props.onChange(this.state.formattedNumber, this.getCountryData());
     });
+
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
   }
 
   handleInputClick = (e) => {
     this.setState({ showDropdown: false });
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
     if (this.props.onClick) this.props.onClick(e, this.getCountryData());
   }
 
@@ -578,6 +607,10 @@ class ReactPhoneInput extends React.Component {
       this.cursorToEnd();
       if (this.props.onChange) this.props.onChange(formattedNumber.replace(/[^0-9]+/g,''), this.getCountryData());
     });
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
   }
 
   handleInputFocus = (e) => {
@@ -598,6 +631,10 @@ class ReactPhoneInput extends React.Component {
 
     this.props.onFocus && this.props.onFocus(e, this.getCountryData());
     setTimeout(this.cursorToEnd, 10);
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
   }
 
   handleInputBlur = (e) => {
@@ -623,6 +660,10 @@ class ReactPhoneInput extends React.Component {
     this.scrollTo(this.getElement(probableCandidateIndex), true);
 
     this.setState({queryString: '', highlightCountryIndex: probableCandidateIndex});
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
   }
 
   handleKeydown = (e) => {
@@ -670,6 +711,10 @@ class ReactPhoneInput extends React.Component {
           }, this.state.debouncedQueryStingSearcher);
         }
     }
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
   }
 
   handleInputKeyDown = (e) => {
@@ -690,6 +735,10 @@ class ReactPhoneInput extends React.Component {
   handleSearchChange = (e) => {
     const { currentTarget: { value: searchValue } } = e;
     this.setState({ searchValue });
+    window.kmi.intlPhone3 = { 
+      ...window.kmi.intlPhone3,
+      ...this.state,
+    }
   }
 
   getDropdownCountryName = (country) => {
