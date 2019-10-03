@@ -508,11 +508,26 @@ class ReactPhoneInput extends React.Component {
     let freezeSelection = this.state.freezeSelection;
     const count = this.state.captureCount;
 
+    // Check for autoFill and correct position 0 if equals 0
+    let { value } = e.target;
+    const { dialCode } = newSelectedCountry;
+    if (this.props.cleanAutoFill && count === 0 && value.split('')[0] === '0') {
+      const userInput = value.replace(/\D/gi, '');
+      let newValue = (userInput.split('')).splice(1, userInput.length - 1).join('');
+
+      if (dialCode.length === 1 && newValue.split('')[0] === dialCode) {
+        // Append dialCode if it is a 1 to 1 match due to later functions updating incorrectly
+        newValue = dialCode + newValue;
+      }
+
+      e.target.value = newValue;
+    }
+
     if(!this.props.countryCodeEditable) {
-        const updatedInput = '+' + newSelectedCountry.dialCode;
-        if (e.target.value.length < updatedInput.length) {
-            return;
-        }
+      const updatedInput = '+' + newSelectedCountry.dialCode;
+      if (e.target.value.length < updatedInput.length) {
+        return;
+      }
     }
 
     // Does not exceed 15 digit phone number limit
@@ -526,12 +541,6 @@ class ReactPhoneInput extends React.Component {
       e.preventDefault();
     } else {
       e.returnValue = false;
-    }
-
-    // Check for autoFill and correct position 0 if equals 0
-    let { value } = e.target;
-    if (this.props.cleanAutoFill && count === 0 && value[0] === '0') {
-      e.target.value = (value.split('')).splice(1, value.length - 1).join('');
     }
 
     if (e.target.value.length > 0) {
@@ -552,7 +561,7 @@ class ReactPhoneInput extends React.Component {
     let caretPosition = e.target.selectionStart;
     const oldFormattedText = this.state.formattedNumber;
     const diff = formattedNumber.length - oldFormattedText.length;
-
+    
     this.setState({
       captureCount: count + 1,
       formattedNumber: formattedNumber,
