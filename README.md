@@ -8,6 +8,7 @@ If this connection is severed, please contact me to revert readme back to usage.
 autoSelectCountry - Allows country guessing to be turned on/off. Default is true. Turning off will default to the defaultCountry.
 This is best used when autoFill is triggered. This will ensure that country is not guessed and forces the user to change the flag drop down to select dialcode
 
+### autoSelectCountry - { boolean } "true" by default
 ```
 autoSelectCountry={false}
 
@@ -23,6 +24,12 @@ defaultCountry={[// passed default country 2 letter iso code]}
 disableAreaCodes={true}
 disableCountryCode={false}
 disableSearchIcon={true}
+```
+
+### cleanAutoFill = { boolean } "false" by default
+It has been noticed that autofill (mostly chrome) has a long standing error where it is appending a 0 to countries with a non-standard format. This function clears the 0 value at posiiton 0 if present on assumed autofill
+``` 
+cleanAutoFill={true}
 ```
 
 ## Contributing

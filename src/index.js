@@ -61,6 +61,7 @@ class ReactPhoneInput extends React.Component {
 
   static defaultProps = {
     autoSelectCountry: true,
+    cleanAutoFill: false,
     excludeCountries: [],
     onlyCountries: [],
     preferredCountries: [],
@@ -159,6 +160,7 @@ class ReactPhoneInput extends React.Component {
 
     this.state = {
       autoSelectCountry: this.props.autoSelectCountry,
+      captureCount: 0,
       formattedNumber,
       onlyCountries,
       preferredCountries,
@@ -484,6 +486,7 @@ class ReactPhoneInput extends React.Component {
     let formattedNumber = this.props.disableCountryCode ? '' : '+';
     let newSelectedCountry = this.state.selectedCountry;
     let freezeSelection = this.state.freezeSelection;
+    const count = this.state.captureCount;
 
     if(!this.props.countryCodeEditable) {
         const updatedInput = '+' + newSelectedCountry.dialCode;
@@ -503,6 +506,12 @@ class ReactPhoneInput extends React.Component {
       e.preventDefault();
     } else {
       e.returnValue = false;
+    }
+
+    // Check for autoFill and correct position 0 if equals 0
+    let { value } = e.target;
+    if (this.props.cleanAutoFill && count === 0 && value[0] === '0') {
+      e.target.value = (value.split('')).splice(1, value.length - 1).join('');
     }
 
     if (e.target.value.length > 0) {
@@ -525,6 +534,7 @@ class ReactPhoneInput extends React.Component {
     const diff = formattedNumber.length - oldFormattedText.length;
 
     this.setState({
+      captureCount: count + 1,
       formattedNumber: formattedNumber,
       freezeSelection: freezeSelection,
       selectedCountry: newSelectedCountry,
